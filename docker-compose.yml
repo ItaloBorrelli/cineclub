@@ -1,0 +1,31 @@
+version: "3"
+services:
+  web-app:
+    image: web-app
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    networks:
+      - cineclub-app
+  api-server:
+    image: api-server
+    ports:
+      - "3001:3001"
+    networks:
+      - cineclub-app
+    depends_on:
+      - mongo
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - cineclub-app
+    volumes:
+      - mongo-data:/data/db
+networks:
+  cineclub-app:
+    driver: bridge
+volumes:
+  mongo-data:
+    driver: local
