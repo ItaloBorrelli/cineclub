@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { create as createUser } from "../controllers/UserControl.js";
+import { create as createUser } from "controllers/UserControl";
 
 let router = Router();
 

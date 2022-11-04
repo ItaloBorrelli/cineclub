@@ -1,8 +1,8 @@
-import e, { Request, Response } from "express";
+import { Request, Response } from "express";
 
 import bcrypt from "bcrypt";
 
-import UserModel from "../models/UserModel.js";
+import UserModel from "models/UserModel";
 
 import { IUserModel, IUserReqBody } from "types/User";
 

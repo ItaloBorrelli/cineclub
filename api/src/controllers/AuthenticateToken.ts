@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
-import { IGetUserAuthInfoRequest } from "../types/RequestInterface";
+import { IGetUserAuthInfoRequest } from "types/RequestInterface";
 
 declare module "jsonwebtoken" {
   export interface IUserIdJwtPayload extends jwt.JwtPayload {

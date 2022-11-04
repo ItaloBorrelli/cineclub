@@ -6,7 +6,7 @@
 
     /* Modules */
     "baseUrl": ".",
-    "module": "ES6",
+    "module": "CommonJS",
     "moduleResolution": "Node",
     "paths": {
       "controllers/*": ["src/controllers/*"],

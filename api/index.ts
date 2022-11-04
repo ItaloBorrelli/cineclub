@@ -1,19 +1,19 @@
 import express from "express";
 import cors from "cors";
-import { connect, connection } from "mongoose";
+import mongoose from "mongoose";
 import { config } from "dotenv";
 
-import { router as loginRouter } from "./src/routes/LoginRoute.js";
-import { router as userRouter } from "./src/routes/UserRoute.js";
+import { router as loginRouter } from "./src/routes/LoginRoute";
+import { router as userRouter } from "./src/routes/UserRoute";
 
 config({ path: "../.env" });
 let closeServer = () => {};
 
-connect("mongodb://mongo:27017/cineclub").catch((e) => {
+mongoose.connect("mongodb://mongo:27017/cineclub").catch((e) => {
   console.error("Connection error", e.message);
 });
 
-const db = connection;
+const db = mongoose.connection;
 db.once("open", () => {
   const app = express();
 
@@ -44,3 +44,5 @@ process.on("SIGTERM", () => {
 process.on("SIGINT", () => {
   closeServer();
 });
+
+export {};

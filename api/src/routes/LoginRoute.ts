@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { login } from "../controllers/LoginControl.js";
+import { login } from "controllers/LoginControl";
 
 let router = Router();
 

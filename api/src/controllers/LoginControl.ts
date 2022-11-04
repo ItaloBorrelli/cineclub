@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import { Request, Response } from "express";
 import jwt from "jsonwebtoken";
 
-import UserModel from "../models/UserModel.js";
+import UserModel from "models/UserModel";
 
 declare module "jsonwebtoken" {
   export interface IUserIdJwtPayload extends jwt.JwtPayload {
