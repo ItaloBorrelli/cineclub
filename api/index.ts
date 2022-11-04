@@ -1,17 +1,19 @@
 import express from "express";
 import cors from "cors";
-import mongoose from "mongoose";
+import { connect, connection } from "mongoose";
+import { config } from "dotenv";
 
-import { router as loginRouter } from "./src/routes/login-route.js";
-import { router as userRouter } from "./src/routes/user-route.js";
+import { router as loginRouter } from "./src/routes/LoginRoute.js";
+import { router as userRouter } from "./src/routes/UserRoute.js";
 
+config({ path: "../.env" });
 let closeServer = () => {};
 
-mongoose.connect("mongodb://mongo:27017/cineclub").catch((e) => {
+connect("mongodb://mongo:27017/cineclub").catch((e) => {
   console.error("Connection error", e.message);
 });
 
-const db = mongoose.connection;
+const db = connection;
 db.once("open", () => {
   const app = express();
 
