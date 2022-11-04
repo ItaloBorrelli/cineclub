@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "cineclub-server",
   "version": "0.1.0",
   "private": true,
   "description": "Server for connecting to a mongoose server",

@@ -1,5 +1,5 @@
 {
-  "name": "cineclub",
+  "name": "cineclub-web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -24,6 +24,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.12",
+    "dotenv": "^16.0.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router": "^6.4.3",
@@ -34,6 +35,7 @@
     "@types/react-dom": "^18.0.8",
     "eslint": "^8.26.0",
     "eslint-config-react-app": "^7.0.1",
+    "eslint-plugin-import": "^2.26.0",
     "prettier": "2.7.1",
     "react-scripts": "5.0.1"
   }
