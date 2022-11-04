@@ -2,12 +2,10 @@ FROM node:16
 
 WORKDIR /usr/cineclub
 
-COPY ./package.json ./
+COPY ./package*.json ./
 
 RUN npm install
 
 COPY . .
 
-EXPOSE 80
-
-CMD [ "npm", "run", "start" ]
+EXPOSE 3000

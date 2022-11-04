@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    /*Language and Environment*/
+    "lib": ["ES6"],
+    "target": "ES6",
+
+    /* Modules */
+    "baseUrl": ".",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "paths": {
+      "controllers/*": ["src/controllers/*"],
+      "models/*": ["src/models/*"],
+      "routes/*": ["src/routes/*"],
+      "types/*": ["src/types/*"]
+    },
+
+    /* Interop Constraints */
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+
+    /* Type Checking */
+    "noFallthroughCasesInSwitch": true,
+    "strict": true,
+
+    /* Completeness */
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
