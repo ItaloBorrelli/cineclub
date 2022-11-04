@@ -1,9 +1,14 @@
-build:
-	cd api && $(MAKE) build
-	cd web && $(MAKE) build
+build_run:
+	docker-compose -f docker-compose.yml up --build
 
 run:
-	docker-compose up
+	docker-compose -f docker-compose.yml up
+
+build_run_dev:
+	docker-compose -f docker-compose.dev.yml up --build
+
+run_dev:
+	docker-compose -f docker-compose.dev.yml up
 
 stop:
 	docker-compose down
