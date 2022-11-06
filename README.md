@@ -14,7 +14,6 @@ mv cineclub {install_dir}
 cd {install_dir}/cineclub
 vim api/.env
 # add required secrets to .env
-cp api/.env web
 ```
 
 To start dev:
