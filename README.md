@@ -6,13 +6,29 @@ Prerequisites:
 - git
 - make
 
-To install and run:
+To install:
 
 ```
 git clone git@github.com:ItaloBorrelli/cineclub.git
 mv cineclub {install_dir}
 cd {install_dir}/cineclub
-make build && make run
+vim api/.env
+# add required secrets to .env
+cp api/.env web
+```
+
+To start dev:
+
+```
+make build_run_dev
+# if already built can use make run_dev
+```
+
+To start prod:
+
+```
+make build_run
+# if already built can use make run
 ```
 
 To close:

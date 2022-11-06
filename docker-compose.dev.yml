@@ -1,7 +1,7 @@
 version: "3"
 services:
-  cineclub-web-app:
-    image: cineclub-web-app
+  web-app:
+    image: web-app
     build:
       context: ./web/
       dockerfile: Dockerfile
@@ -12,9 +12,9 @@ services:
       - ./web/:/usr/cineclub:delegated
       - node_modules_web:/node_modules
     networks:
-      - web-api-network
-  cineclub-api-server:
-    image: cineclub-api-server
+      - cineclub-network
+  api-server:
+    image: api-server
     build:
       context: ./api/
       dockerfile: Dockerfile
@@ -25,15 +25,17 @@ services:
       - ./api/:/usr/cineclub:delegated
       - node_modules_api:/node_modules
     networks:
-      - web-api-network
+      - cineclub-network
     depends_on:
       - mongo
   mongo:
     image: mongo
     ports:
       - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
     networks:
-      - web-api-network
+      - cineclub-network
 volumes:
   mongo-data:
     driver: local
@@ -42,5 +44,5 @@ volumes:
   node_modules_api:
     driver: local
 networks:
-  web-api-network:
+  cineclub-network:
     driver: bridge

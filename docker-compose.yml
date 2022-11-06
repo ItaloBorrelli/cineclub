@@ -9,9 +9,7 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - web-api-network
-    links:
-      - api-server
+      - cineclub-network
   api-server:
     image: api-server
     build:
@@ -21,9 +19,7 @@ services:
     ports:
       - "3001:3001"
     networks:
-      - web-api-network
-    links:
-      - mongo
+      - cineclub-network
     depends_on:
       - mongo
   mongo:
@@ -32,9 +28,11 @@ services:
       - "27017:27017"
     volumes:
       - mongo-data:/data/db
+    networks:
+      - cineclub-network
 volumes:
   mongo-data:
     driver: local
 networks:
-  web-api-network:
+  cineclub-network:
     driver: bridge
