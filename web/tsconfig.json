@@ -15,13 +15,9 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
-    "paths": {
-      "components/*": ["components/*"],
-      "pages/*": ["pages/*"],
-      "util/*": ["util/*"],
-      "views/*": ["views/*"]
-    }
+    "jsx": "react-jsx"
+    // [#21] Eject or update if create-react-apps adds ability to not overwrite paths in tsconfig
+    // "paths": {}
   },
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
