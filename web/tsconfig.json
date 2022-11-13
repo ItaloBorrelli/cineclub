@@ -1,18 +1,10 @@
 {
   "compilerOptions": {
-    /*Language and Environment*/
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "target": "ESNext",
-
-    /* Modules */
-    "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "Node",
-    // [#21] Eject or update if create-react-apps adds ability to not overwrite paths in tsconfig
-    // "paths": {}
-
-    /* Interop Constraints */
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -24,9 +16,9 @@
     /* Type Checking */
     "noFallthroughCasesInSwitch": true,
     "strict": true,
-
-    /* Completeness */
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "allowJs": true,
+    "resolveJsonModule": true
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"],
   "exclude": ["node_modules"]

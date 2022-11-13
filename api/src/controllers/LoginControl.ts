@@ -22,7 +22,7 @@ const login = async (
   res: Response
 ) => {
   const { email, password } = req.body;
-
+  console.log(req);
   if (!email || !password) {
     return invalidEmailOrPassword(res);
   }
