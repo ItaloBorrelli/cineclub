@@ -2,8 +2,10 @@ import * as React from "react";
 
 import { NextUIProvider } from "@nextui-org/react";
 import { ThemeProvider as NextThemesProvider } from "next-themes";
+import { Route, Routes } from "react-router-dom";
 
 import Login from "./pages/Login";
+import Register from "./pages/Register";
 import { lightTheme, darkTheme } from "./util/styles/Theming";
 
 const App = (): React.ReactElement => {
@@ -17,7 +19,10 @@ const App = (): React.ReactElement => {
       }}
     >
       <NextUIProvider theme={darkTheme}>
-        <Login />
+        <Routes>
+          <Route path="/Login" element={<Login />} />
+          <Route path="/Register" element={<Register />} />
+        </Routes>
       </NextUIProvider>
     </NextThemesProvider>
   );

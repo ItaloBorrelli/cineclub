@@ -10,22 +10,40 @@ import {
   Text,
 } from "@nextui-org/react";
 
-import { login } from "../../util/services/LoginService";
+import { register } from "../../util/services/RegisterUserService";
 
 const button = css({ float: "right" });
 
 let email: string;
 let password: string;
+let firstname: string;
+let lastname: string;
 
-const LoginCard: React.FC = () => {
+const RegisterCard: React.FC = () => {
   return (
     <Grid.Container justify="center">
       <Card css={{ margin: "32px", width: "50%" }}>
         <Card.Header>
-          <Text>Login</Text>
+          <Text>Register</Text>
         </Card.Header>
         <Card.Divider />
         <Card.Body>
+          <Input
+            bordered
+            label="First Name"
+            onChange={(e) => {
+              firstname = e.target.value;
+            }}
+          />
+          <Spacer y={1} />
+          <Input
+            bordered
+            label="Last Name"
+            onChange={(e) => {
+              lastname = e.target.value;
+            }}
+          />
+          <Spacer y={1} />
           <Input
             bordered
             label="Email"
@@ -49,7 +67,7 @@ const LoginCard: React.FC = () => {
             <Button
               className={button()}
               onPress={() => {
-                login(email, password);
+                register(email, password, firstname, lastname);
               }}
             >
               Submit
@@ -61,4 +79,4 @@ const LoginCard: React.FC = () => {
   );
 };
 
-export default LoginCard;
+export default RegisterCard;
