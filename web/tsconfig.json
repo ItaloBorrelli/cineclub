@@ -1,25 +1,35 @@
 {
   "compilerOptions": {
+    /*Language and Environment*/
     "jsx": "preserve",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "target": "ESNext",
+
+    /* Modules */
+    "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "Node",
+    // [#21] Eject or update if create-react-apps adds ability to not overwrite paths in tsconfig
+    // "paths": {}
+
+    /* Emit */
+    "noEmit": true,
+    "resolveJsonModule": true,
+
+    /* Interop Constraints */
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "noEmit": true,
-    // [#21] Eject or update if create-react-apps adds ability to not overwrite paths in tsconfig
-    // "paths": {}
 
     /* Type Checking */
+    "allowJs": true,
     "noFallthroughCasesInSwitch": true,
     "strict": true,
-    "skipLibCheck": true,
-    "allowJs": true,
-    "resolveJsonModule": true
+
+    /* Completeness */
+    "skipLibCheck": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
