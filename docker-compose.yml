@@ -1,38 +1,47 @@
 version: "3"
 services:
-  web-app:
-    image: web-app
+  web_app:
+    container_name: web_app
+    image: cineclub_web_app
     build:
       context: ./web/
       dockerfile: Dockerfile
     command: npm run start
     ports:
       - "3000:3000"
+    depends_on:
+      - api_server
     networks:
-      - cineclub-network
-  api-server:
-    image: api-server
+      - frontend
+  api_server:
+    container_name: api_server
+    image: cineclub_api_server
     build:
       context: ./api/
       dockerfile: Dockerfile
-    command: npm run start
+    command: npm run dev
     ports:
       - "3001:3001"
-    networks:
-      - cineclub-network
     depends_on:
       - mongo
+    networks:
+      - frontend
+      - backend
   mongo:
+    container_name: mongo
     image: mongo
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db
+      - mongo_data:/data/db
+      - mongo_config:/data/configdb
     networks:
-      - cineclub-network
+      - backend
 volumes:
   mongo-data:
     driver: local
 networks:
-  cineclub-network:
+  frontend:
+    driver: bridge
+  backend:
     driver: bridge

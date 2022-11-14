@@ -2,7 +2,7 @@ version: "3"
 services:
   web_app:
     container_name: web_app
-    image: web_app
+    image: cineclub_web_app
     build:
       context: ./web/
       dockerfile: Dockerfile
@@ -10,7 +10,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./web/:/usr/cineclub:delegated
+      - ./web/:/usr/web:delegated
       - node_modules_web:/node_modules
     depends_on:
       - api_server
@@ -18,7 +18,7 @@ services:
       - frontend
   api_server:
     container_name: api_server
-    image: api_server
+    image: cineclub_api_server
     build:
       context: ./api/
       dockerfile: Dockerfile
@@ -26,7 +26,7 @@ services:
     ports:
       - "3001:3001"
     volumes:
-      - ./api/:/usr/cineclub:delegated
+      - ./api/:/usr/api:delegated
       - node_modules_api:/node_modules
     depends_on:
       - mongo
@@ -39,11 +39,14 @@ services:
     ports:
       - "27017:27017"
     volumes:
-      - mongo-data:/data/db
+      - mongo_data:/data/db
+      - mongo_config:/data/configdb
     networks:
       - backend
 volumes:
-  mongo-data:
+  mongo_data:
+    driver: local
+  mongo_config:
     driver: local
   node_modules_web:
     driver: local
