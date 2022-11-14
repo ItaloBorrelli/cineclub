@@ -1,9 +1,12 @@
 FROM node:16
 
-WORKDIR /usr/cineclub
+WORKDIR /usr/web
 
 COPY . .
 
 RUN npm install
+RUN npm install -g serve
 
-EXPOSE 3000
+ARG NODE_ENV
+
+RUN if [ ${NODE_ENV} = "production" ] ; then npm run build ; fi

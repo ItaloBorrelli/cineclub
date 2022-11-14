@@ -1,9 +1,7 @@
 FROM node:16
 
-WORKDIR /usr/cineclub
+WORKDIR /usr/api
 
 COPY . .
 
 RUN npm install
-
-EXPOSE 3001

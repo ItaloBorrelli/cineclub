@@ -9,7 +9,12 @@ import { router as userRouter } from "./src/routes/UserRoute";
 config();
 let closeServer = () => {};
 
-mongoose.connect("mongodb://mongo:27017/cineclub").catch((e) => {
+const PORT = process.env.PORT!;
+const DB_HOST = process.env.DB_HOST!;
+const DB_PORT = process.env.DB_PORT!;
+const DB_NAME = process.env.DB_NAME!;
+
+mongoose.connect(`mongodb://${DB_HOST}:${DB_PORT}/${DB_NAME}`).catch((e) => {
   console.error("Connection error", e.message);
 });
 
@@ -20,11 +25,11 @@ db.once("open", () => {
   app.use(cors());
   app.use(express.json());
 
-  app.use("/api/login", loginRouter);
-  app.use("/api/user", userRouter);
+  app.use("/login", loginRouter);
+  app.use("/user", userRouter);
 
-  const server = app.listen(3001, () => {
-    console.log("Started on PORT 3001");
+  const server = app.listen(Number(PORT), () => {
+    console.log(`Started on PORT ${PORT}`);
     console.log("Client connected successfully");
   });
 

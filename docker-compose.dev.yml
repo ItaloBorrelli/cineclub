@@ -6,9 +6,22 @@ services:
     build:
       context: ./web/
       dockerfile: Dockerfile
-    command: npm run start
+    command:
+      - /bin/bash
+      - -c
+      - |
+        touch .env
+        echo "PORT=${WEB_PORT}" > .env
+        echo "REACT_APP_API_HOST=${API_HOST}" >> .env
+        echo "REACT_APP_API_PORT=${API_PORT}" >> .env
+        npm run debug
     ports:
-      - "3000:3000"
+      - ${WEB_PORT}:${WEB_PORT}
+    environment:
+      - NODE_ENV=development
+      - API_HOST
+      - API_PORT
+      - WEB_PORT
     volumes:
       - ./web/:/usr/web:delegated
       - node_modules_web:/node_modules
@@ -24,7 +37,14 @@ services:
       dockerfile: Dockerfile
     command: npm run dev
     ports:
-      - "3001:3001"
+      - ${API_PORT}:${API_PORT}
+    environment:
+      - ACCESS_TOKEN_SECRET
+      - REFRESH_TOKEN_SECRET
+      - API_PORT
+      - DB_HOST=mongo
+      - DB_PORT
+      - DB_NAME
     volumes:
       - ./api/:/usr/api:delegated
       - node_modules_api:/node_modules
@@ -37,14 +57,14 @@ services:
     container_name: mongo
     image: mongo
     ports:
-      - "27017:27017"
+      - ${DB_PORT}:${DB_PORT}
     volumes:
-      - mongo_data:/data/db
+      - mongo_data_dev:/data/db
       - mongo_config:/data/configdb
     networks:
       - backend
 volumes:
-  mongo_data:
+  mongo_data_dev:
     driver: local
   mongo_config:
     driver: local
