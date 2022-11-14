@@ -12,8 +12,9 @@ To install:
 git clone git@github.com:ItaloBorrelli/cineclub.git
 mv cineclub {install_dir}
 cd {install_dir}/cineclub
-vim api/.env
-# add required secrets to .env
+vim .env
+# add required secrets to .env:
+# ACCESS_TOKEN_SECRET, REFRESH_TOKEN_SECRET, API_HOST, API_PORT, DB_PORT, WEB_PORT
 ```
 
 To start dev:
@@ -39,15 +40,17 @@ make stop
 To delete unwanted images:
 
 ```
-docker image rm web-app
-docker image rm api-server
+docker image rm cineclub_web_app
+docker image rm cineclub_api_server
 docker image rm mongo
 ```
 
 ###### Not recommended
 
-If you really want to remove all the data in the database you've created and start from scratch you can remove the mongo volume with:
+If you really want to remove all the data in the database you've created and start from scratch you can remove the mongo volumes with:
 
 ```
-docker volume rm cineclub_mongo-data
+docker volume rm mongo_data_dev
+docker volume rm mongo_data
+docker volume rm mongo_config
 ```

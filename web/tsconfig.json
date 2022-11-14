@@ -6,7 +6,6 @@
     "target": "ESNext",
 
     /* Modules */
-    "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "Node",
     // [#21] Eject or update if create-react-apps adds ability to not overwrite paths in tsconfig

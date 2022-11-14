@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const url = "http://localhost:3001/api/user";
+import Environment from "../Environment";
+
+const url = `${Environment.URL}/user`;
 
 const register = async (
   email: string,
@@ -8,6 +10,7 @@ const register = async (
   firstname: string,
   lastname?: string
 ) => {
+  console.log(url);
   await axios
     .post(url, { email, password, firstname, lastname })
     .then((res) => {

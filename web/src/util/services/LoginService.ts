@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const url = "http://localhost:3001/api/login";
+import Environment from "../Environment";
+
+const url = `${Environment.URL}/login`;
 
 const login = async (email: string, password: string) => {
   await axios
