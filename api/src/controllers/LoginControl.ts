@@ -11,7 +11,7 @@ declare module "jsonwebtoken" {
 }
 
 const invalidEmailOrPassword = (res: Response) => {
-  res.status(404).json({
+  res.status(403).json({
     success: false,
     message: "You have entered an invalid email or password",
   });
@@ -22,7 +22,6 @@ const login = async (
   res: Response
 ) => {
   const { email, password } = req.body;
-
   if (!email || !password) {
     return invalidEmailOrPassword(res);
   }

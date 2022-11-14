@@ -6,7 +6,7 @@ import { config } from "dotenv";
 import { router as loginRouter } from "./src/routes/LoginRoute";
 import { router as userRouter } from "./src/routes/UserRoute";
 
-config({ path: "../.env" });
+config();
 let closeServer = () => {};
 
 mongoose.connect("mongodb://mongo:27017/cineclub").catch((e) => {

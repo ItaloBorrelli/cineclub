@@ -1,5 +1,5 @@
 {
-  "name": "cineclub",
+  "name": "cineclub-web",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -21,20 +21,17 @@
     ]
   },
   "dependencies": {
-    "@emotion/react": "^11.10.5",
-    "@emotion/styled": "^11.10.5",
-    "@mui/material": "^5.10.12",
+    "@nextui-org/react": "^1.0.0-beta.10",
+    "axios": "^1.1.3",
+    "next-themes": "^0.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router": "^6.4.3",
+    "react-router-dom": "^6.4.3",
+    "react-scripts": "^2.1.3",
     "typescript": "^4.8.4"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",
-    "@types/react-dom": "^18.0.8",
-    "eslint": "^8.26.0",
-    "eslint-config-react-app": "^7.0.1",
-    "prettier": "2.7.1",
-    "react-scripts": "5.0.1"
+    "@types/react-dom": "^18.0.8"
   }
 }
